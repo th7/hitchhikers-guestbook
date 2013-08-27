@@ -26,4 +26,10 @@ describe UsersController do
       expect { get :edit, :id => 1 }.not_to raise_error
     end
   end
+
+  describe '#update' do
+    it 'can be reached' do
+      expect { get :update, :id => 1 }.not_to raise_error
+    end
+  end
 end
