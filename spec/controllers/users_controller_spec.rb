@@ -13,4 +13,10 @@ describe UsersController do
       expect { get :new }.not_to raise_error
     end
   end
+
+  describe '#create' do
+    it 'can be reached' do
+      expect { post :create }.not_to raise_error
+    end
+  end
 end
