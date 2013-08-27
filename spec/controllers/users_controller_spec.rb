@@ -19,4 +19,11 @@ describe UsersController do
       expect { post :create }.not_to raise_error
     end
   end
+
+
+  describe '#edit' do
+    it 'can be reached' do
+      expect { get :edit, :id => 1 }.not_to raise_error
+    end
+  end
 end
