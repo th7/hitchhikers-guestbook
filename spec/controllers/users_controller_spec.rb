@@ -32,4 +32,10 @@ describe UsersController do
       expect { get :update, :id => 1 }.not_to raise_error
     end
   end
+
+  describe '#destroy' do
+    it 'can be reached' do
+      expect { post :destroy, :id => 1 }.not_to raise_error
+    end
+  end
 end

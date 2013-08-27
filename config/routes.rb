@@ -1,7 +1,7 @@
 HitchhikersGuestbook::Application.routes.draw do
   root 'home#index'
 
-  resources :users, :except => [:show, :destroy]
+  resources :users, :except => [:show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
