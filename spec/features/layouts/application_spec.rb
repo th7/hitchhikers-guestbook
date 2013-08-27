@@ -4,6 +4,10 @@ describe 'the application layout' do
       visit '/'
       expect(page.has_selector?('a[href="/sessions/new"]')).to be_true
     end
+    it 'has a link to create an account' do
+      visit '/'
+      expect(page.has_selector?('a[href="/users/new"]')).to be_true
+    end
   end
 
   context 'signing in' do
