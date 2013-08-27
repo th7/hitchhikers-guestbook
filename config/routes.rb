@@ -2,6 +2,7 @@ HitchhikersGuestbook::Application.routes.draw do
   root 'home#index'
 
   resources :users, :except => [:show]
+  resources :sessions, :only => [:create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
