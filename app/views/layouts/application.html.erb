@@ -7,7 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to 'Sign In', new_session_path %>
+<% unless @signing_in %>
+  <%= link_to 'Sign In', new_session_path %>
+<% end %>
 <%= yield %>
 
 </body>
