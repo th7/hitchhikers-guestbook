@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% unless @signing_in %>
+<% unless @authenticating %>
   <%= link_to 'Sign In', new_session_path %>
   <%= link_to 'Create Account', new_user_path %>
 <% end %>

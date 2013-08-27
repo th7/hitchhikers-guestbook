@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
-    @signing_in = true
+    @authenticating = true
   end
 
   def create
