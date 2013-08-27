@@ -1,28 +1,33 @@
-== README
+This is a code test for Code 42.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Jr. Ruby Coding Task: To help us get an understanding of your coding style and experience, Code42 would like you to complete the following interview homework assignment.
 
-Things you may want to cover:
+The basic requirements of the assignment should take approximately 2-4 hours to implement, and it’s purposefully open ended; we’d like to see what you come up with. If you’re not sure about a requirement, just make a best guess and document your decision.
 
-* Ruby version
+You can take it as far as you’d like to go, but don’t focus on extra things at the expense of the basic requirements!
 
-* System dependencies
+Happy Coding!
 
-* Configuration
+Due Date:
 
-* Database creation
+We’d like to have your submission within about a week.
 
-* Database initialization
+Submission:
 
-* How to run the test suite
+When finished, please compress your project into a .zip or .tgz archive and email it to john.reilly@code42.com Background:
 
-* Services (job queues, cache servers, search engines, etc.)
+Back in the early days of the web, every aspiring web site author covered their site in hit counters, guestbooks, and animated gifs (some things never change).
 
-* Deployment instructions
+For many of the old timers at Code42, this classic era of web development is where we cut our teeth. Modern-day websites with their slick interfaces and “tasteful design” lack the charm of their predecessors. Let’s bring back the golden days!
 
-* ...
+Your Goal:
 
+Implement a basic, one page website that includes a guestbook feature.
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Basic Requirements:
+
+Use a Ruby web framework of your choice (Rails, Sinatra, other?) The root page of the site should include a form that allows guests to enter their name, location, and a brief message. When the form is submitted, the user should be redirected back to the root page and their entry should be displayed with a timestamp of when the message was posted. All prior guestbook messages should be displayed on the page. All fields on the form are required, and the user should be alerted if they’re missing something. The guestbook message should not be saved if a field is missing. Any other site content or design is up to you. Guestbook messages must be persisted to a database. (SQLite3 preferred) You’re free to use whatever gems you’d like, however you’re not allowed to use any gem that gives you guestbook-like functionality for free. :-) Extra Credit:
+
+You’re not required to implement anything beyond the basic requirements above. However, if you have extra time, here are some ideas of additonal things you could choose to implement. You’re free to invent any other features that sound interesting to you.
+
+Use a testing framework to validate the app works as you expect. (Rspec, Test::Unit, Cucumber, etc. Your choice) Style the site using a CSS framework. Develop the project using Git for version control, and submit it to Code42 by pushing it to your Github account and emailing us a link to the project. Paginate the guestbook entries. Require a user to create an account and sign-in before being allowed to post a guestbook message.
