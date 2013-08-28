@@ -2,6 +2,9 @@
 
 <% @entries.each do |entry| %>
   <%= render :partial => 'entries/show', :locals => { :entry => entry } %>
+  <% if current_user && current_user.id == entry.user_id %>
+    <%= link_to 'delete', entry_path(entry), :method => "DELETE" %>
+  <% end %>
 <% end %>
 
 <% if current_user %>

@@ -23,6 +23,9 @@ describe 'the landing page' do
   context 'signed in' do
     before do
       @test_user = FactoryGirl.create(:user)
+      3.times do
+        @test_user.entries << FactoryGirl.build(:entry)
+      end
       sign_in(@test_user)
     end
 
@@ -38,6 +41,16 @@ describe 'the landing page' do
       click_button('Create Entry')
       expect(page).to have_content 'testmessage'
       expect(page).to have_content 'testlocation'
+    end
+
+    it 'displays a delete option for owned messages' do
+      @entries.each do |entry|
+        expect(page.has_selector?("a[href='/entries/#{entry.id}']")).to be_false
+      end
+
+      @test_user.entries.each do |entry|
+        expect(page.has_selector?("a[href='/entries/#{entry.id}']")).to be_true
+      end
     end
   end
 end
