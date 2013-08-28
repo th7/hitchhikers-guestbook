@@ -1,4 +1,15 @@
+include FeatureHelper
+
 describe 'the application layout' do
+  before do
+    @test_user = User.new(
+      :username => 'testsessionuser',
+      :password => 'testsessionpassword',
+      :password_confirmation => 'testsessionpassword'
+    )
+    @test_user.save!
+  end
+
   context 'not signed in' do
     it 'has a link to sign in' do
       visit '/'
@@ -8,6 +19,27 @@ describe 'the application layout' do
     it 'has a link to create an account' do
       visit '/'
       expect(page.has_selector?('a[href="/users/new"]')).to be_true
+    end
+  end
+
+  context 'signed in' do
+    before do
+      sign_in
+    end
+
+    it 'doesnt have a link to sign in' do
+      visit '/'
+      expect(page.has_selector?('a[href="/sessions/new"]')).to be_false
+    end
+
+    it 'doesnt have a link to create an account' do
+      visit '/'
+      expect(page.has_selector?('a[href="/users/new"]')).to be_false
+    end
+
+    it 'has a link to sign out' do
+      visit '/'
+      expect(page.has_selector?('a[href="/signout"]')).to be_true
     end
   end
 
