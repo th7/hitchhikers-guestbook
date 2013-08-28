@@ -14,7 +14,7 @@ describe UsersController do
     end
 
     describe '#create' do
-      it 'creats a use' do
+      it 'creates a user' do
         post :create, :user => {
           :username => 'controllertestuser',
           :password => 'controllertestpassword',
