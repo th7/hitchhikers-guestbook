@@ -6,5 +6,4 @@ describe Entry do
   it { should validate_presence_of(:message) }
   it { should validate_presence_of(:location) }
   it { should validate_presence_of(:user) }
-  it { should validate_presence_of(:created_at) }
 end
