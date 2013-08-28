@@ -28,4 +28,17 @@ describe SessionsController do
       end
     end
   end
+
+  context 'signed in' do
+    before do
+      session[:user_id] = 1
+    end
+
+    describe '#signout' do
+      it 'clears the session' do
+        get :signout
+        expect(session[:user_id]).to be_nil
+      end
+    end
+  end
 end

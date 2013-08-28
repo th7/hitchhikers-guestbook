@@ -4,4 +4,5 @@ HitchhikersGuestbook::Application.routes.draw do
   resources :users, :except => [:index, :show]
   resources :sessions, :only => [:new, :create]
 
+  get '/signout' => 'sessions#signout'
 end
