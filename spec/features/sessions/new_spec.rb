@@ -12,8 +12,8 @@ describe 'the sign in page' do
     end
 
     it 'creates a new session when submitted' do
-      sign_in
-      expect(page).to have_content test_username
+      sign_in(@test_user)
+      expect(page).to have_content @test_user.username
     end
   end
 end

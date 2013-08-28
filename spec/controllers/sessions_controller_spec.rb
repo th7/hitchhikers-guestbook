@@ -15,8 +15,11 @@ describe SessionsController do
 
     describe '#create' do
       it 'creates a new session' do
-        post :create, :session => test_usercreds
-        expect(session[:user_id]).not_to be_nil
+        post :create, :session => {
+          :username => @test_user.username,
+          :password => test_password
+        }
+        expect(session[:user_id]).to eq @test_user.id
       end
     end
   end

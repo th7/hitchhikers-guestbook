@@ -1,5 +1,6 @@
 describe 'the new user page' do
   context 'not signed in' do
+
     it 'has a create user form' do
       visit '/users/new'
       find_field('user[username]')

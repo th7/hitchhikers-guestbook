@@ -17,7 +17,7 @@ describe 'the application layout' do
 
   context 'signed in' do
     before do
-      sign_in
+      sign_in(@test_user)
     end
 
     it 'doesnt have a link to sign in' do
