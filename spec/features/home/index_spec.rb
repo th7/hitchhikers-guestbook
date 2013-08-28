@@ -43,6 +43,20 @@ describe 'the landing page' do
       expect(page).to have_content 'testlocation'
     end
 
+    it 'doesnt create entry with blank message' do
+      fill_in 'entry[location]', :with => 'testlocation'
+      click_button('Create Entry')
+      expect(page).not_to have_content 'testmessage'
+      expect(page).not_to have_content 'testlocation'
+    end
+
+    it 'doesnt create entry with blank location' do
+      fill_in 'entry[message]', :with => 'testmessage'
+      click_button('Create Entry')
+      expect(page).not_to have_content 'testmessage'
+      expect(page).not_to have_content 'testlocation'
+    end
+
     it 'displays a delete option for owned messages' do
       @entries.each do |entry|
         expect(page.has_selector?("a[href='/entries/#{entry.id}']")).to be_false
