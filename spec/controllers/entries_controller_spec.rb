@@ -22,5 +22,16 @@ describe EntriesController do
         ).to be_kind_of Entry
       end
     end
+
+    describe '#destroy' do
+      it 'destroys an entry' do
+        @test_user.entries << FactoryGirl.create(:entry)
+        entry_id = @test_user.entries.last.id
+
+        post :destroy, :id => entry_id
+
+        expect(Entry.where(:id => entry_id).first).to be_nil
+      end
+    end
   end
 end

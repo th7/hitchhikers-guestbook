@@ -3,7 +3,7 @@ HitchhikersGuestbook::Application.routes.draw do
 
   resources :users, :except => [:index, :show]
   resources :sessions, :only => [:new, :create]
-  resources :entries, :only => [:create]
+  resources :entries, :only => [:create, :destroy]
 
   get '/signout' => 'sessions#signout'
 end
