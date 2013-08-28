@@ -31,5 +31,14 @@ describe 'the landing page' do
       find_field('entry[location]')
       find_button('Create Entry')
     end
+
+    it 'creates an entry when submitted' do
+      visit '/'
+      fill_in 'entry[message]', :with => 'testmessage'
+      fill_in 'entry[location]', :with => 'testlocation'
+      click_button('Create Entry')
+      expect(page).to have_content 'testmessage'
+      expect(page).to have_content 'testlocation'
+    end
   end
 end
