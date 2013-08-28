@@ -15,8 +15,14 @@ describe UsersController do
   end
 
   describe '#create' do
-    it 'can be reached' do
-      expect { post :create }.not_to raise_error
+    it 'creats a use' do
+      post :create, :user => {
+        :username => 'controllertestuser',
+        :password => 'controllertestpassword',
+        :password_confirmation => 'controllertestpassword'
+      }
+
+      expect { User.where(:username => 'controllertestuser').first }.not_to be_nil
     end
   end
 
