@@ -18,4 +18,18 @@ describe 'the landing page' do
       expect(page).to have_content entry.created_at
     end
   end
+
+  context 'signed in' do
+    before do
+      @test_user = FactoryGirl.create(:user)
+      sign_in(@test_user)
+    end
+
+    it 'has a form for creating an entry' do
+      visit '/'
+      find_field('entry[message]')
+      find_field('entry[location]')
+      find_button('Create Entry')
+    end
+  end
 end

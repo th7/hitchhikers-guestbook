@@ -1,0 +1,7 @@
+<%= form_for(entry) do |f| %>
+  <%= f.label :message, 'Message:' %>
+  <%= f.text_field :message %>
+  <%= f.label :location, 'Location:' %>
+  <%= f.text_field :location %>
+  <%= f.submit %>
+<% end %>

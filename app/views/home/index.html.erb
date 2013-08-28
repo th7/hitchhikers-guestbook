@@ -1,5 +1,9 @@
 <h1>DON'T PANIC</h1>
 
 <% @entries.each do |entry| %>
-  <%= render :partial => 'entries/show', :locals => {:entry => entry} %>
+  <%= render :partial => 'entries/show', :locals => { :entry => entry } %>
+<% end %>
+
+<% if current_user %>
+  <%= render :partial => 'entries/form', :locals => { :entry => Entry.new } %>
 <% end %>
