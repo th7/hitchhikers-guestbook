@@ -21,7 +21,7 @@ describe UsersController do
           :password_confirmation => 'controllertestpassword'
         }
 
-        expect { User.where(:username => 'controllertestuser').first }.not_to be_nil
+        expect(User.where(:username => 'controllertestuser').first).to be_kind_of User
       end
     end
   end
