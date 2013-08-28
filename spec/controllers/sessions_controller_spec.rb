@@ -4,12 +4,7 @@ describe SessionsController do
   context 'not signed in' do
     before do
       session.clear
-      @test_user = User.new(
-        :username => 'testsessionuser',
-        :password => 'testsessionpassword',
-        :password_confirmation => 'testsessionpassword'
-      )
-      @test_user.save!
+      @test_user = FactoryGirl.create(:user)
     end
 
     describe '#new' do
@@ -21,8 +16,8 @@ describe SessionsController do
     describe '#create' do
       it 'creates a new session' do
         post :create, :session => {
-          :username => 'testsessionuser',
-          :password => 'testsessionpassword',
+          :username => 'testuser',
+          :password => 'testpassword',
         }
         expect(session[:user_id]).not_to be_nil
       end

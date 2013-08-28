@@ -1,12 +1,7 @@
 describe 'the sign in page' do
   context 'not signed in' do
     before do
-      @test_user = User.new(
-        :username => 'testsessionuser',
-        :password => 'testsessionpassword',
-        :password_confirmation => 'testsessionpassword'
-      )
-      @test_user.save!
+      @test_user = FactoryGirl.create(:user)
     end
 
     it 'has a sign in form' do
@@ -18,10 +13,10 @@ describe 'the sign in page' do
 
     it 'creates a new session when submitted' do
       visit '/sessions/new'
-      fill_in 'session[username]', :with => 'testsessionuser'
-      fill_in 'session[password]', :with => 'testsessionpassword'
+      fill_in 'session[username]', :with => 'testuser'
+      fill_in 'session[password]', :with => 'testpassword'
       click_button('Sign In')
-      expect(page).to have_content 'testsessionuser'
+      expect(page).to have_content 'testuser'
     end
   end
 end

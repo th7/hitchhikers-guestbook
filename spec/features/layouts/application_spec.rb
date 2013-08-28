@@ -2,12 +2,7 @@ include FeatureHelper
 
 describe 'the application layout' do
   before do
-    @test_user = User.new(
-      :username => 'testsessionuser',
-      :password => 'testsessionpassword',
-      :password_confirmation => 'testsessionpassword'
-    )
-    @test_user.save!
+    @test_user = FactoryGirl.create(:user)
   end
 
   context 'not signed in' do
