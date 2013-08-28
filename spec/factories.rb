@@ -5,4 +5,12 @@ FactoryGirl.define do
     password 'test_password'
     password_confirmation 'test_password'
   end
+
+  factory :entry do
+    sequence(:message) {|n| "message#{n}" }
+    sequence(:location) {|n| "location#{n}" }
+    created_at Time.now
+    updated_at Time.now
+    user
+  end
 end
