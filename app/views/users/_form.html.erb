@@ -1,0 +1,9 @@
+<%= form_for(User.new) do %>
+  <%= label_tag 'user[username]', 'Username:'  %>
+  <%= text_field_tag 'user[username]' %>
+  <%= label_tag 'user[password]', 'Password:'  %>
+  <%= password_field_tag 'user[password]' %>
+  <%= label_tag 'user[password_confirmation]', 'Confirm:'  %>
+  <%= password_field_tag 'user[password_confirmation]' %>
+  <%= submit_tag 'Sign In' %>
+<% end %>
