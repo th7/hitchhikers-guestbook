@@ -1,17 +1,18 @@
 describe 'the landing page' do
-  it 'can be reached' do
+  before do
+    @entries = []
+    3.times do
+      @entries << FactoryGirl.create(:entry)
+    end
     visit '/'
+  end
+
+  it 'can be reached' do
     expect(page).to have_content "DON'T PANIC"
   end
 
   it 'displays all entries' do
-    entries = []
-    3.times do
-      entries << FactoryGirl.create(:entry)
-    end
-
-    visit '/'
-    entries.each do |entry|
+    @entries.each do |entry|
       expect(page).to have_content entry.message
       expect(page).to have_content entry.location
       expect(page.find('body')).to have_content entry.user.username
@@ -26,14 +27,12 @@ describe 'the landing page' do
     end
 
     it 'has a form for creating an entry' do
-      visit '/'
       find_field('entry[message]')
       find_field('entry[location]')
       find_button('Create Entry')
     end
 
     it 'creates an entry when submitted' do
-      visit '/'
       fill_in 'entry[message]', :with => 'testmessage'
       fill_in 'entry[location]', :with => 'testlocation'
       click_button('Create Entry')
