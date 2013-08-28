@@ -31,12 +31,6 @@ describe UsersController do
       session[:user_id] = 1
     end
 
-    describe '#index' do
-      it 'can be reached' do
-        expect { get :index }.not_to raise_error
-      end
-    end
-
     describe '#edit' do
       it 'can be reached' do
         expect { get :edit, :id => 1 }.not_to raise_error

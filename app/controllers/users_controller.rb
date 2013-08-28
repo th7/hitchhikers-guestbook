@@ -2,9 +2,6 @@ class UsersController < ApplicationController
 
   skip_filter :auth, :only => [:new, :create]
 
-  def index
-  end
-
   def new
     @authenticating = true
   end
