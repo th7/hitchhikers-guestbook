@@ -1,16 +1,31 @@
 require 'spec_helper'
 
 describe SessionsController do
-
-  describe '#new' do
-    it 'can be reached' do
-      expect { get :new }.not_to raise_error
+  context 'not signed in' do
+    before do
+      session.clear
+      @test_user = User.new(
+        :username => 'testsessionuser',
+        :password => 'testsessionpassword',
+        :password_confirmation => 'testsessionpassword'
+      )
+      @test_user.save!
     end
-  end
 
-  describe '#create' do
-    it 'can be reached' do
-      expect { post :create }.not_to raise_error
+    describe '#new' do
+      it 'can be reached' do
+        expect { get :new }.not_to raise_error
+      end
+    end
+
+    describe '#create' do
+      it 'creates a new session' do
+        post :create, :session => {
+          :username => 'testsessionuser',
+          :password => 'testsessionpassword',
+        }
+        expect(session[:user_id]).not_to be_nil
+      end
     end
   end
 end

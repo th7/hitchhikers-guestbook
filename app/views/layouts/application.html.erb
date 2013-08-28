@@ -7,10 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% unless @authenticating %>
+
+<% if current_user %>
+  <p>Signed in as <%= current_user.username %></p>
+<% elsif not @authenticating %>
   <%= link_to 'Sign In', new_session_path %>
   <%= link_to 'Create Account', new_user_path %>
 <% end %>
+
 <%= yield %>
 
 </body>
