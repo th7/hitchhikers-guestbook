@@ -1,5 +1,3 @@
-include FeatureHelper
-
 describe 'the application layout' do
   before do
     @test_user = FactoryGirl.create(:user)

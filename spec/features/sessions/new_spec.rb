@@ -12,11 +12,8 @@ describe 'the sign in page' do
     end
 
     it 'creates a new session when submitted' do
-      visit '/sessions/new'
-      fill_in 'session[username]', :with => 'testuser'
-      fill_in 'session[password]', :with => 'testpassword'
-      click_button('Sign In')
-      expect(page).to have_content 'testuser'
+      sign_in
+      expect(page).to have_content test_username
     end
   end
 end

@@ -1,7 +1,11 @@
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+include FeatureHelper
+
 FactoryGirl.define do
+
   factory :user do
-    username 'testuser'
-    password 'testpassword'
-    password_confirmation 'testpassword'
+    username test_username
+    password test_password
+    password_confirmation test_password
   end
 end
